@@ -1,1 +1,1 @@
-Проекты по курсу Postgres Advanced 2024-04
+Проекты по курсу Postgres Advanced 2024-04.
