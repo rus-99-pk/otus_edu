@@ -1,15 +1,21 @@
 #  Настройка PostgreSQL
 ### 1\. Создал ВМ *otus-db-pg-vm-3* с Ubuntu 20.04 в ЯО
+
 ### 2\. Установил Postgres 15 по [документации](https://www.postgresql.org/download/linux/ubuntu/)
+
 ### 3\. Убедился, что Postgres запущен
-![7313117b617d08de4f1fd1d30d4865a3.png](:/694245e05e2c4e11a847085de51f5032)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/db575f93-5d88-4bc6-b438-28740a59d544)
+
 ### 4\. Создал таблицу в БД *postgres* и заполнил ее некоторыми данными
-![4aa7d387bb01a6e22df739af646ecba4.png](:/b740630865314b5ebf90b9214fececd3)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/3716012d-7f9d-42e6-8321-7fd9f76bf5e3)
+
 ### 5\. Выполнил остановку кластера с помощью *pg_ctlcluster*
-![811c6201bcce865950451b56b9a1195c.png](:/b82e7d42c20047ac99a9477740eb007b)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/2a8ca9d7-ab6f-4f2e-8568-eea0136fef1a)
+
 ### 6\. Создал и добавил диск размером 10 ГБ к ВМ *otus-db-pg-vm-3*
-![1090dbf4418f05172413862a85228ab2.png](:/79930c24ae4047e996bd1a68d310338c)
-![da1547a7f7877d16d7765fe15f79aa15.png](:/996983c5edce4021a8356cbbbefafc4a)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/c0ae6390-e1ae-4199-9534-e0bff6f2535d)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/7a77311f-2a9a-4cda-a1fe-6bf4618f7eb9)
+
 ### 7\. Создаю ФС по [мануалу](https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux)
 	7.1. Создаю таблицу партиций
 	7.2. Создаю раздел и задаю область, которую будет занимать раздел на диске
@@ -20,37 +26,49 @@
 	7.7. Выполняю монтирование
 	7.8. Проверяю что с разделом можно работать
 	7.9. Добавляю раздел в fstab
-![a215d0b4e6d237eb331167f6109290b6.png](:/f114b575d4f645119bb0cb742fea1631)
-![f17522b1287c7c332a04f991a1c69742.png](:/37de9c0002424791ad766e1e7d368053)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/acc12427-07e5-4a78-8a8f-f9b5fb732953)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/1e7f39a1-6377-46b4-ae12-e077d3486367)
+
 ### 8\. Делаю пользователя *postgres* владельцем */mnt/data*
 `chown -R postgres:postgres /mnt/data/`
+
 ### 9\. Переношу содержимое */var/lib/postgresql/15* в */mnt/data*
 `mv /var/lib/postgresql/15 /mnt/data`
+
 ### 10\. Пробую запустить Postgres
 Получаю ошибку, что */var/lib/postgresql/15/main* не существует.
-![f2618430e532b21ddc605fe2fdb1a360.png](:/278644c6196d4d3497cdd2fad22d8617)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/8c1f7b76-4341-4525-8c6a-dabc377337be)
 Соответственно Postgres'у неоткуда брать данные, т.е. тут либо заново инициализировать пустой кластер с таблицами по умолчанию, либо менять в файле конфигурации */etc/postgresql/15/main/postgresql.conf* параметр *data_directory*.
+
 ### 11\. Вношу изменения в конфигурацию Postgres
 	11.1. Создаю файл конфигурации /etc/postgresql/15/main/conf.d/myconfig.conf
 	11.2. Добавляю в него значение data_directory = '/mnt/data/15/main'
+
 ### 12\. Выполняю попытку запуска и проверки наличия таблицы *test*
-![0ccb8ac2f4ad2aae8864b773ef8cb443.png](:/79e21cf78c6b46ce885770a5f6ee6b4e)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/7a5c63ce-12ca-42c9-aa03-592c107b8d2f)
+
 * * *
 ## Задание со * 
 ### 1\. Создал новую ВМ в ЯО с названием *otus-db-pg-vm-3-1*
-![cc97d06624159ed5d599fb70fc63a22c.png](:/b8fe6d1726b4457c88cf6af5610eda1c)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/c391b53c-6159-49d9-bbdb-9104bcc26f89)
+
 ### 2\. Установил Postgres 15 по [документации](https://www.postgresql.org/download/linux/ubuntu/)
-![7d711719d98c8433e2d881184164f5c0.png](:/d2ac407a38a34e06828660b4d888c323)
-### 3\. Остановил Postgres и вместо удаления изменил название каталога */var/lib/postgresql*
-![278b92f631f59801c4295374e590e58d.png](:/b691f5acf8c942e199dc73677684f551)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/4a4d707e-d712-488b-b669-c0be38669f0e)
+
+### 3\. Остановил Postgres и вместо удаления изменил название каталога */var/lib/postgresql/15*
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/3595b783-0326-410d-bcc5-07cbdf302ecf)
+
 ### 4\. Выключил первую ВМ и отсоединил диск
-![39dc464000f4914c8b50508b1b935c6f.png](:/05ae54fda2e94a18b659955a8652b0d0)
-![c94a369f837e894bf7880221c334333a.png](:/035932cd94904e8aa07b5cc1f947963e)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/9a4e4c40-9f3a-487f-8110-90bb23858bfc)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/343cf079-07c0-44b3-9858-9d98c8249cf2)
+
 ### 5\. Присоединил диск к новой ВМ
-![410d60ba4794a18a9281d36fc847f203.png](:/1226762cdf704149864b93cb5f41f194)
-![9cad7b8e7cdf01f0394821345ed60a89.png](:/837a668171b549439b95c68be7d2389e)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/793a2ee7-60f2-417d-aeaa-4ef9e2077219)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/dfef62ae-79b3-4540-9604-43b716940554)
+
 ### 6\. Проверяю наличие раздела и ФС на нем
-![d0370647919ad59281ed43ffba7d9377.png](:/1eac8569d16243d1bad3d935e787ba77)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/6b38cb99-6c5e-4bfe-a269-7bf5f567786d)
+
 ### 7\. Монтирую раздел
 	7.1. Создаю каталог /mnt/data, куда буду монтировать раздел
 	7.2. Выполняю монтирование
@@ -58,9 +76,11 @@
 	7.4. Создаю символическую ссылку, чтобы не менять конфигурацию
 	7.5. Проверяю доступность каталога по ссылке
 	7.6. Добавляю запись в fstab
-![fb32b34bbe93596eb8316a16e80bb0ed.png](:/bef6a2035b9e4e03a77f819e070cc339)
-![c0498d658fc8e00bbdedd52c82eae8c6.png](:/55e9b08287154360a5b58eab56c73c21)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/04bb3021-5a9b-4023-9138-37f13556a0f5)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/74ed96e3-522f-4788-b3fb-3a396c4f0b92)
+
 ### 8\. Выполняю попытку запустить Postgres
-![6f9792fe8f5db65c461d5c3959e695a5.png](:/594b387c1c2e4580a8f0b39d3e5ef91b)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/c6f23a09-11b2-4747-8845-5c4381cd7dc3)
+
 ### 9\. Проверяю наличие данных
-![e35735c1588972b31e0a483ba1c84a67.png](:/eb355daf08b64a66ba2460084189348d)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/e7dbd142-d766-44ff-b7ff-3950cf456f14)
