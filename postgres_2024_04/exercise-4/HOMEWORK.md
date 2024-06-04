@@ -3,25 +3,34 @@
 **vCPU:** 2
 **RAM:** 2 ГБ
 **HDD:** 20 ГБ
-![c6dd2a45218a50ad108d08a612528547.png](:/f44fbd462f3e418b8c573a1d1584877b)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/ed7f1c91-7643-4d1d-80b3-e0304bea9f87)
+
 ### 2\. Установил Postgres 15 по [документации](https://www.postgresql.org/download/linux/ubuntu/)
+
 ### 3\. Убедился, что Postgres запущен
-![030587add270ec8b5ec4638ea8b9bf09.png](:/9de5dfb5e2534987acc5705d863eab1a)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/d77f5d7e-7ebf-4799-a7e6-ce7af005b4a2)
+
 ### 4\. Инициализировал pgbench
-![166ae3b07dcc858979a0fa847707ece1.png](:/40f06b18edfc4f7898cf2582e14416eb)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/4217d673-1c15-4d89-840e-feb9f01e7776)
+
 ### 5\. Выполнил первый тест
-![6f2a967273b4a453d8b95386d2c26a6b.png](:/082e142f5a7d46c5a66dd9cbc6842907)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/8b184843-ef39-4276-a2cb-df8879d1e28d)
+
 ### 6\. Пошел в [pgtune](https://pgtune.leopard.in.ua/), чтобы выставить оптимальные настройки под текущее железо
-![9797d32d0657a6359c01cf2924bc0041.png](:/39da31d78731471589dd0f27321de21f)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/c197b825-23f1-4f40-b5a5-cfd158af849c)
+
 ### 7\. Проверил состояние каталога conf.d, чтобы расположить конфигурацию туда
-![dbdf0310cfada25af18c06ccadae864c.png](:/54168fe3eb0942e6bf76027f8df1f3f9)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/7d9de361-6127-492f-9b67-07a1f2946cb2)
+
 ### 8\. Создал файл конфигурации */etc/postgresql/15/main/conf.d/pgtune.conf*
-![be95f79d7920d0f6db1dadfbe6bc01e6.png](:/db88f988e3974e58acd19cec51a34fa1)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/dc056601-1910-46b0-a08b-f48198654274)
+
 ### 9\. Решил проверить изменения
 	1. Выполнил еще раз pgbench перед внесением изменений
 	2. Перезапусти сервис Postgres
 	3. Выполняю pgbench повторно, удивляюсь уменьшению средней задержки и уведичению кол-ва транзакций в секунду (увеличилось почти в 2 раза)
 	4. Выполняю еще раз, для закрепления
-![38468f566db373450373b1f23b2c05d6.png](:/95bedfb2dc7a4557af6d2589205b158b)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/d96fe818-3dcd-4a3d-91b3-1dd4eaebf22e)
+
 ### 10\. Подкрутил еще несколько параметров (с описанием)
-![cef92652cbabcfb15e32ecab8394ec5f.png](:/f1a8a711ac414100a212a23d68f1853e)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/e0a6c380-8842-4ca7-af52-6a84f3fe2d3a)
