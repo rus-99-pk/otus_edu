@@ -1,8 +1,11 @@
 #   Углубленный анализ производительности. Профилирование. Мониторинг. Оптимизация 
 ### 1\. Создал ВМ *otus-db-pg-vm-4* с Ubuntu 20.04 в ЯО
 **vCPU:** 2
+
 **RAM:** 2 ГБ
+
 **HDD:** 20 ГБ
+
 ![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/ed7f1c91-7643-4d1d-80b3-e0304bea9f87)
 
 ### 2\. Установил Postgres 15 по [документации](https://www.postgresql.org/download/linux/ubuntu/)
