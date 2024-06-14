@@ -3,27 +3,43 @@
 ## Настройка YC CLI и создание ВМ
 
 ### 1. Выполняю базовую настройку облака в CLI
-![7ad5abe1aedea44dac95e05d54714744.png](:/975348a14a194f33b35ac02a807faa32)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/5e550663-e693-4f41-9aad-e68a7ebd13ab)
 
 ### 2. Настраиваю виртуальную инфраструктуру для ВМ
+
 **2.1. Создаю сеть**
+
 **2.2. Создаю подсеть и задаю ей пул**
+
 **2.3. Создаю зону DNS**
+
 **2.4. Проверяю данные инфраструктуры**
-![b5d30434e20f94980e4433fc3d9f7b4a.png](:/111ebd80bb814f2d9199a3c009439d27)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/fa24ea01-0a3b-43b9-b7b7-e379ac66b26c)
 
 ### 3. Создаю инфраструктуру из ВМ:
+
 **3.1. для etcd:**
-![a6442bea203663abe0c68b0d2cba0717.png](:/b0ae6b519c0a4c3aadc128dd01384a1e)
-![1410e0490775cf5b7c47a397884ca75e.png](:/a1103e24a3cd4557a20cf388fb90ec20)
-![daad1a91858ae07d4447fc5170e0d19b.png](:/40ed3c56ad0c47de94d699a98c536dae)
-![305c9b058c19a7a9549bbdf032d3bd48.png](:/77beaf9d72974cedaed3eb0e9e1eb8d0)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/d7a23d8a-6e24-4534-87c8-af92c7df63ac)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/00def683-8621-4fb6-88f4-44e0860e16a5)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/25bf5f4d-b415-4f0a-bb77-20623d572ec0)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/e074fd0b-970f-4fca-a2ea-30d7b8a6107a)
+
 **3.2. для Postgres + Patroni:**
-![ff7ccb786ae502a6684d2ad24207d671.png](:/efac2453dd144e8e9bed2ef839088ebd)
-![5bc2b62326c57bb45a7401241e404b67.png](:/647238967cfa4f2198107496950733ef)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/b72ec727-5d2e-479c-8a6f-21d734ceb0d7)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/2710d717-7fc4-4fe6-b9a7-2107dba0abc7)
+
 **3.3. для HAProxy:**
-![3f7a6b18207acc991844c44d0f03cc9e.png](:/67715bf5ddc9412ebed5afdececb03b9)
-![cd7b0c0af31cf42f854fcaac56bd5efc.png](:/0484c95fddba489aafac12adc6fb9da9)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/b1e61f97-0ad5-4d96-ba2c-c5f373c6c8e2)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/315bd857-9d7c-4a43-96ab-ad538718a28d)
 
 ## Настройки будут производиться на примере одной ВМ (аналогичные действия буду производиться на всех членах кластера ВМ того же типа)
 
@@ -33,103 +49,172 @@
 Для установки использую скрипт из [официального репозитория](https://github.com/etcd-io/etcd) на GitHub, который немного видоизменен для упрощения установки.
 Запускаю от root, чтобы точно не было проблем с доступами.
 Действия выполняю на всех серверах ETCD.
-	**Создаю скрипт**
-![bc40d25a62513385d348a1f0e9286d0a.png](:/8f872fe6990f49aa98a6c1826b7fc87c)
-	**Запускаю (в скрипт входит и проверка утилит, входящих в состав ETCD)**
-![0dc624a0aa039f36284b85a0d8042b76.png](:/cdc8db4f64844f2dae4922c0cdcb4c73)
+**Создаю скрипт**
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/370dbd17-0c21-466e-ba4c-b603a3dfc6ed)
+
+**Запускаю (в скрипт входит и проверка утилит, входящих в состав ETCD)**
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/d3f1f4f1-a1bc-4079-9bd0-100fe4bc7ac2)
 
 ### 5. Настраиваю конфигурационные файлы
 **Привожу пример конфигурации (*/etc/default/etcd.yml*) на одной из нод:**
-![fdec43f212dad1ddafde602bf0830a51.png](:/d59488c5409a489799639081f9a5bbdb)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/d3ba8c2c-356d-4739-bb92-7b94cd722ef4)
+
 **Также создаю systemd-юнит:**
-![a12f966a1fad8a9b8f9ee5c21c8f8aae.png](:/874d04bf64ff429f984629a219379971)
-	**5.1. Добавляю сервис в автозапуск, запускаю его и проверяю статус**
-	**5.2. Проверяю статус кластера (вроде бы все ОК, кластер в порядке)**
-![4164d0bd93b15539eaef79283ed3dfa1.png](:/b4da6f7303fa4ceebeceebc8637ae513)
-![44d9e2d28d57c6412ab07688195272c3.png](:/4fb30e7d1b994cb282478894822b3d4f)
-	**5.3. Меняю initial-cluster-state на *existing***
-![46011bf4f4707a507f935be2b27717f1.png](:/894bb5d58dfb4abe90598995d9edb6cd)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/66641178-54f8-4880-af32-7430e83f4175)
+
+**5.1. Добавляю сервис в автозапуск, запускаю его и проверяю статус**
+
+**5.2. Проверяю статус кластера (вроде бы все ОК, кластер в порядке)**
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/4b8d1e99-cb95-463c-8f0f-f05f6a5c9cc2)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/10270373-fb65-4a9a-b3f2-d77114f8024d)
+
+**5.3. Меняю initial-cluster-state на *existing***
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/358fecec-9bbf-410d-afdd-18ec4fd7e761)
 
 ## Подготавливаю Postgres
 
 ### 6\. Установил Postgres 15 по [документации](https://www.postgresql.org/download/linux/ubuntu/)
 **Проверяю статус установки**
-![e07b7c394d19fe02147dbc5920054c10.png](:/a671c83776324f0392324e7114b87253)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/8c049691-e4a6-4dba-bf7c-71bf9df10634)
+
 **Выключаю сервис Postgres и удаляю из автозапуска, чтобы полностью передать его под управление Patroni**
-![502a74f2be5199084b47389fd3d3d0ae.png](:/d990325356864260982b2c439ab4b8d8)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/c9a39712-5dc7-47e7-952d-9c41437d4c19)
 
 ## Подготавливаю Patroni
 
 ### 7\. Устанавливаю Patroni
+
 **7.1. Установил пакеты *python3* и *pip***
-![98fc07ab2c66653879f1634361f92639.png](:/1ba80885b5fe4fd681e1ab8e7123c2c8)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/a5170083-d511-44ba-8f9a-c0793fab662c)
+
 **7.2. Установил Python-модули *python-etcd* и *psycopg***
-![a69974ea22254535ceffbdb85d3b6e3f.png](:/4f29cbf7a7184ad2a7dbc565ea6a351a)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/5ae0b4b0-4783-4a04-a567-55d10bf0346e)
+
 **7.3. Проверил статус установки**
-![a60c5099ec928c66d4645fe553ef5cbe.png](:/3792b7b76fe54c6d990e49d188fcc16d)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/63c01aae-6fb2-4345-a76a-0a6c042abf1d)
 
 ### 8\. Выполняю подготовительные действия перед настройкой
+
 **8.1. Делаю копию каталога с данными по умолчанию и создаю новый**
-![a478e3863424f41ef0ef36195d13dff2.png](:/c8ebf031dd6246778747f5697a681581)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/2be54c82-6d56-4e09-9ed0-e74fa5ffe790)
+
 **8.2. Создаю каталог файла конфигурации и делаю пользователя *postgres* его владельцем**
-![163cc191af97f6c90c224990bf737bec.png](:/91af2e285fa945a598013d308cab1f38)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/16dcf98a-8fde-4009-8c85-92c51b065ea1)
 
 ### 9\. Конфигурирую Patroni
+
 **9.1. Создаю файл конфигурации Patroni**
-![1b3373922aed157e848114b6aeb8b851.png](:/b50c4e4f7d8b46a28f3c99e1c7889e80)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/c762f48a-1e0e-4eb0-b96c-cb68cd291919)
+
 **Содержимое файла:**
-![b356baac8a792a59b6c92a699a33599c.png](:/9a3201ea46eb41c386d40226bd2a0cf6)
-![6ab4735703498309b531cde1ceda1f82.png](:/2fcbf208f6d04ff7ac660e2ed16c02fe)
-![a6a3c3357fd6c4ca3be5f0dbf4025c5d.png](:/d37c6a1b26814bb0b252e53e33f2ad48)
-**9.2. Создаю systemd-юнит**
-![59414863f56613b392d3ac6addc2c21c.png](:/57284adba5ff490a9a684076b52bcaf4)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/968951f8-3c65-4dad-9100-bc452d7740da)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/9fcec712-96ce-43da-91a1-9b6e584af60a)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/9da95326-4cae-4326-b172-499b6977c9c4)
+
+**9.2. Создаю systemd-юнит (цифра 7 на скриншоте - явно лишняя)**
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/67e11128-b1f2-4e06-be04-e35e31c1fc09)
+
 **9.3. Провожу тестовый запуск и проверяю статус**
-![c100121d21a6f9ca2e87054cbec9dda3.png](:/3bd33be27c7042359e9e294c229338ec)
-**9.3.1. Пробую узнать состояние кластера со стороны Patroni**
-**Но тут явно что-то идет не так**
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/59583122-df07-40d7-b477-2bf9bab5a7ce)
+
+**9.3.1. Пробую узнать состояние кластера со стороны Patroni. Но тут явно что-то идет не так**
+
 **9.3.2. Пробую установить модуль, без которого Patroni не может жить**
+
 **9.3.3. Проверяю еще раз**
+
 **На этот раз показал что-то похожее на рабочий кластер**
-![fc9668e456467ec2019b73355faf1e12.png](:/189dea9c5fc340b9a6794be1f8a5d123)
-**9.4. Убеждаюсь, что реплика работает как нужно**
-![04cf9736024c178faa4a82e1bcfba70d.png](:/58b06491eb20409686826d4037beddff)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/ba86afb4-18cb-4011-bec0-581ee1958a43)
+
+**9.4. Убеждаюсь, что реплика работает как нужно (на этот раз - 9 лишняя)**
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/9d963785-7e05-457d-9608-2938b6af7299)
+
 **9.5. Радуюсь**
 
 ## Подготавливаю PGBouncer
 
 ### 10\. Устанавливаю PGBouncer на всех серверах с Postgres и Patroni
-![dd580b4b823702a7bb19d7c7ba4799ea.png](:/b43d50b9e9c74a4a936c6fa7f4ea8e65)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/7cbf4f77-df5a-49e9-b26d-b2d6e9881977)
 
 ### 11\. Проверяю статус сервиса
-![9703e383df2ab836abb8de9a2f47ed97.png](:/2439d40ab85b4ce6902f5ec20bd05a8e)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/5a866089-85ad-4fc5-8a68-4131fed2a3ba)
 
 ### 12\. Конфигурирую сервис
+
 Добавляю в конец файла конфигурации */etc/pgbouncer/pgbouncer.ini* пользовательские параметры:
-![fc1dd2ae451911d2a8839e3bbea4bcd4.png](:/f3cb090c9989463ca98a7224c27898c3)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/0ab6e6c1-7599-4ffe-8319-6c381ba41a85)
+
 Создаю файл конфигурации */etc/pgbouncer/userlist.txti*, добавляю туда данные пользователя, под которым планирую подключаться:
-![b3a5f41fb9e2a9e8a8d5118df9703ae8.png](:/f1abbc86685f4d8ba252794b6cd2f619)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/f91b11f4-2729-4c12-895b-815aabcb17f5)
+
 **12.1. Проверяю кто сейчас является мастером**
+
 **12.2. Перезапускаю сервис, чтобы закрепить настройки**
+
 **12.3. Создаю тестовую БД, указанную в настройках PGBouncer**
+
 **12.4. Выполняю тестовое подключение**
+
 **12.5. Радуюсь**
-![4a8508ba39d757d195089a1c1254f28b.png](:/4b9145ec485f40a5b0d7804956df4040)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/a1974020-5f2a-41b3-a8c1-d5e490d6b6b2)
 
 ## Подготавливаю HAProxy
 
 ### 13\. Устанавливаю HAProxy на двух заранее подготовленных серверах
-![cd034d7a024b03ae58bcd348ef8d11cb.png](:/6d625a5a1cc243d89cd69ffe31404675)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/d761aa08-2753-40fb-8b65-90d5dffac435)
 
 ### 14\. Конфигурирую и запускаю сервис
+
 **14.1. Меняю конфиг */etc/haproxy/haproxy.cfg***
+
 **14.2. Добавляю коннекторы для подключения к PG Boucer'у**
+
 **14.3. Перезапускаю сервис чтобы применить изменения**
+
 **14.4. Проверяю статус сервиса**
+
 **14.5. Вижу, что недоступны 1 и 3 ноды, пробую узнать как дела у 2 - он мастер. Отлично!**
-![f8f67c38880bb304eb22af8fc8eeb377.png](:/dbe137a1a2c549bc8b8bcf6569d1bac4)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/3c1da36e-2df5-48da-b633-a71eb994713b)
+
 **14.6. Пробую подключиться к одной из нод PG Bouncer с сервера HAProxy, успешно**
+
 **14.7. Пробую подключиться к PG Bouncer ЧЕРЕЗ HAProxy**
+
 **14.8. Понимаю что что-то настроено неверно**
+
 **14.9. Правлю конифиг и добавляю в listener опцию для TCP-соединения** 
+
 **14.10. Подключение успешно** 
-![01530cb3aaf39270694691cecbefaa35.png](:/4307eaf041a54a0db6ba43f79cbff809)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/27d39a1e-2025-4b2d-bb43-2a4dcff1fa6f)
+
+## ВНИМАНИЕ! СПАСИБО ЗА ВНИМАНИЕ!
