@@ -1,35 +1,51 @@
- # Введение в Kubernetes. Часть 2
- ### 1. Установил Minikube
- Выполняю установку по [документации](https://kubernetes.io/ru/docs/tasks/tools/install-minikube/)
+# Введение в Kubernetes. Часть 2
+
+### 1. Установил Minikube
+
+Выполняю установку по [документации](https://kubernetes.io/ru/docs/tasks/tools/install-minikube/)
+
 **1.1. Т.к. у меня  Linux, проверяю поддерживает ли мой ПК виртуализацию. Судя по кол-ву строк, поддерживает.**
+
 ![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/b0d660b1-79c1-42a4-b5b2-fd3dcb4157d4)
 
 **1.2. Выполняю установку kubectl по [документации](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/#%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-kubectl-%D0%B2-linux)**
+
 Проверяю.
+
 ![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/14597c25-1e57-420d-a2b2-767e86aaebfa)
 
 **1.3. Пробую установить, [скачав](https://kubernetes.io/ru/docs/tasks/tools/install-minikube/#%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-minikube-%D1%81-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E-%D0%BF%D1%80%D1%8F%D0%BC%D0%BE%D0%B9-%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8) бинарник**
+
 Проверяю.
+
 ![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/b1f6e680-64a2-43be-8161-1e7dc7ceb042)
 
 **Отлично! Идем дальше.**
+
 ### 2. Поднимаю Minikube
+
 2.1. Стартую minikube
+
 ![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/18703d38-a72a-43ad-bbec-fbb2af16bdaa)
 
 2.2. Поднимаю UI
+
 ![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/9176aee6-45cd-44a7-bb36-0de82115ac23)
 
 ![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/f41368b2-3d7b-4905-8684-b052a88f8b14)
 
 ### 3. Подготавливаю Minikube
+
 **3.1. Создаю namespace**
+
 ![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/ad17da9e-28ba-47b8-addd-3138108c0e02)
 
 **3.2. Указываю его по умолчанию**
+
 ![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/286c492a-7e71-425d-b0fd-eef2e13688dd)
 
 **3.3. Проверяю статус**
+
 ![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/ec3a13ff-c634-4bc9-bf54-a56f575377c1)
 
 ### 4. Пробую поднять сервис Postgres
