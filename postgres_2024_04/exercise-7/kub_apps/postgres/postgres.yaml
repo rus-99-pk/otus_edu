@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+spec:
+  type: NodePort
+  ports:
+   - port: 5432
+  selector:
+    app: postgres
+
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-stateful
+spec:
+  serviceName: "postgres"
+  replicas: 2
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:14.12-alpine3.20
+        ports:
+        - containerPort: 5432
+          name: pgotus
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                  name: pg-secrets
+                  key: POSTGRES_USER
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                  name: pg-secrets
+                  key: POSTGRES_PASSWORD
+        volumeMounts:
+        - name: pgotus
+          mountPath: /var/lib/postgresql/data
+          subPath: postgres
+  volumeClaimTemplates:
+  - metadata:
+      name: pgotus
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 1Gi
