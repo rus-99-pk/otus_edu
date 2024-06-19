@@ -2,63 +2,111 @@
  ### 1. Установил Minikube
  Выполняю установку по [документации](https://kubernetes.io/ru/docs/tasks/tools/install-minikube/)
 **1.1. Т.к. у меня  Linux, проверяю поддерживает ли мой ПК виртуализацию. Судя по кол-ву строк, поддерживает.**
-![70b00fdf5d4db85de2356dee51d67b7e.png](:/4cf47202d53a4c42b4de432f217f2f77)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/b0d660b1-79c1-42a4-b5b2-fd3dcb4157d4)
+
 **1.2. Выполняю установку kubectl по [документации](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/#%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-kubectl-%D0%B2-linux)**
 Проверяю.
-![849c473d3bbc5e6742b0483fe8513ff6.png](:/1aed11dc0f014a31bd8161bfa332b4ad)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/14597c25-1e57-420d-a2b2-767e86aaebfa)
+
 **1.3. Пробую установить, [скачав](https://kubernetes.io/ru/docs/tasks/tools/install-minikube/#%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-minikube-%D1%81-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E-%D0%BF%D1%80%D1%8F%D0%BC%D0%BE%D0%B9-%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8) бинарник**
 Проверяю.
-![1e81e53453377fdcc6e2d1f9e2ddf862.png](:/6b84edb5b8394d8892755ec1a3b23d51)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/b1f6e680-64a2-43be-8161-1e7dc7ceb042)
+
 **Отлично! Идем дальше.**
 ### 2. Поднимаю Minikube
 2.1. Стартую minikube
-![4184899280141d92554459dd5a8c2a79.png](:/2fcc42ae87644102b931911f9fed411f)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/18703d38-a72a-43ad-bbec-fbb2af16bdaa)
+
 2.2. Поднимаю UI
-![41587ec8030053908c643f78e10e25c3.png](:/e267557001ba492caa2d733a4e8227b1)
-![9205687b6fca4d62abba1a2bda60c9b0.png](:/ab5fbce03cf4477fba4dec5713bb6c5b)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/9176aee6-45cd-44a7-bb36-0de82115ac23)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/f41368b2-3d7b-4905-8684-b052a88f8b14)
+
 ### 3. Подготавливаю Minikube
 **3.1. Создаю namespace**
-![b78f3f40ec04c74797922515cda1c2b8.png](:/4b8c8d44a5ab4457afb6f40fffb2672f)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/ad17da9e-28ba-47b8-addd-3138108c0e02)
+
 **3.2. Указываю его по умолчанию**
-![216c7ac4fac10b1d8d8ef2c8926d4b9a.png](:/834ec56492104bc08631fa1bc1e956e3)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/286c492a-7e71-425d-b0fd-eef2e13688dd)
+
 **3.3. Проверяю статус**
-![0a4c9b3df6085558cd013b4c6682008f.png](:/5c097a3bbb5a4c8e879f04768b52939f)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/ec3a13ff-c634-4bc9-bf54-a56f575377c1)
+
 ### 4. Пробую поднять сервис Postgres
+
 **4.1. StatefulSet Postgres и Service для него в одном файле**
+
 **4.2. Файл с секретами в переменных окружения**
-![9c605d8b91b8e0e68539163fca4c9fa1.png](:/1e23056f7b054b4397b5947af27e7dac)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/34a0ecad-6d5a-421f-b93b-3f3448f8a06c)
+
 ### 5. Решение проблем в процессе
+
 **5.1. Выполняю *kubectl apply -f ...*, но сталкиваюсь с ошибкой**
-![2a10a7cf63f0125049ca80071bbb9e83.png](:/47b168542ec94e07ae0ad4441028646f)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/b5cfbd7c-55a7-44ea-b252-786f4f7d9026)
+
 **Причину ошибки найти удалось, дело бы в этих минусах**
-![8128124ff22108df084cd8eee2208154.png](:/a4b0eebd52444b88ab5f8d26657c70d9)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/4acd9a0c-4fe5-42b4-a76b-2595622d79d4)
+
 **5.2. После их удаления, под, на первый взгляд, завелся**
-![25733296a7d55cdf89f84f6b2aa6c65e.png](:/45d629aa708f41238a6722d116411cea)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/0bb823c3-8c33-4db6-b9de-055b1f8638b4)
+
 **Но, нет, наткнулся на следующую ошибку:**
-![623aab4207c590f56788618f53cb8b0e.png](:/e7fd7efb3a9e4975b2b376d57b8d55f5)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/42067fb5-c494-4479-89c2-590ee94ab12f)
+
 **После изменения названий (в нижнем регистре и без "\_"), StatefulSet запустился**
+
 **5.3. Далее, вижу что проблема с Pod'ом**
-![bac1a1d7733a9a800c1f4ba540fa8684.png](:/d5b919a1b5a74f52b346f72c8a50b3e5)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/af9c1052-c188-4941-9229-a9987a1ee627)
+
 **А именно, Pod не может найти секрет**
-![b1f3d2f055aa985c04a76b649944e626.png](:/12feb7989ef142749b4fbf5dbc26b6b0)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/5529ed90-97c9-47b9-b1ae-da9f091f8a8c)
+
 Понимаю, что я его не применил...
+
 **При попытке применить секрет встречаю еще одну преграду на пути к успеху**
+
 **5.3.1. kubectl не нравится что данные в secrets.yaml не в Base64, ОК, кодирую**
+
 **5.3.2. УРА! Идем ловить новые ошибки...**
-![f6b08e1f4a99d96f1647db7ccdda3860.png](:/b249c9f1a6f94331ac9071f47353a07e)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/576567c2-837e-4b1a-9c5a-2ef5d66498b1)
+
 **5.4. Поды создались, но вижу, что снова что-то пошло не так** 
-![b766716017852f41294855b67382d471.png](:/19bdf8584c114dedaaa20708d72a700c)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/279da145-e147-47e8-805e-302e0736356c)
+
 **5.4.1 Иду в логи**
+
 Вероятно PG не нравится, что секреты я казал в кавычках.
-![a78c3a3d783237391c3b2f35a9292c03.png](:/29a2934f7fcb45f2b8cb7dbd68d10d82)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/c3c6f8b9-b659-4824-b943-62927ccbb77b)
+
 **5.4.2 Пробую указать без них и кодирую еще раз:**
-![ccbefc1347092dba49bae2bc4a6beb60.png](:/a0bce8fd785e4c0486527c16e8aff8fc)
-![07001cb10b2ff44da5eb0b02322bfa3c.png](:/6f3b4fc2e4fb4f07a9afa3c7ff9ffbb6)
-**Ну магия!**
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/030c75f4-9369-44c5-81b6-f708cfee5359)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/e36f2b61-4ce6-42fe-9ede-ad429312fc90)
+
+**Ну, магия!**
+
 ### 6. Пробую подключиться к PG
+
 **6.1. Прошу Minikube дать доступ к сервису**
+
 **6.2. Пробую подключаться через psql**
-Успешно!
+
 **6.3. Создаю тестовую БД**
+
 **6.4. Проверяю**
-![0cf0c58180afc39c1c3a1c7b89afbbba.png](:/8ee99818651d41fa8fde76b3fcea33c0)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/7d43cf73-798b-4663-a0b1-d275368107bc)
+
+### 7. Попробовал также поудалять Pod'ы вручную.
+**Итог:** успешно пересоздаются
