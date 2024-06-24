@@ -6,84 +6,86 @@
 **1.1. Из-за двух СУБД нагрузка на ОЗУ и Процессор будет чуть выше**
 **1.2. На сервере будут лежать 2 объемные БД**
 
-![97512c8ae0553224d78ef3224ef8dddd.png](:/f39104e255624f0ab08f3f99c8a38c54)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/70d9c833-9e22-4757-a688-c512df5a4ff0)
 
 ### 2. Установил Postgres по [документации](https://www.postgresql.org/download/linux/ubuntu/)
 
 **2.1. Создаю скрипт, с его помощью устанавливаю**
+
 **2.2. Проверяю статус установки**
-![bf890fdf7f8f543bcf53645e3b04e625.png](:/d92622a9da624e1689464b1eb99c5028)
+
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/19fc1585-b0be-4ffa-9479-20400bc0664c)
 
 ### 3. Установил Clickhouse по [документации](https://clickhouse.com/docs/en/install)
 
 Выполняю аналогичные установке Postgres действия.
 
-![a862d3e5ce4f6328d0ce7aabef0d1a0f.png](:/2b0082107104411d8f814614085c013a)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/076966ca-6e26-410c-8ef3-a9a2314439d1)
 
 ### 4. Пробую настроить Postgres на максимальную производительность
 
 **4.1. Выполняю тесты pgbench**
 
-![eb0dc2f133fc3720d425c74a077dcc8e.png](:/34088240f35a479391b6a045b8a47565)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/eb70f9d4-c29e-48ca-93ea-63b55853d0d2)
 
 **4.2. Кручу параметры из pgtune под мое железо**
 
-![c65091f62af2d7f5e8d9979274058f1f.png](:/c8749e45e4c5402c843ef8ca156898d8)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/af623728-d6f8-4aff-91dc-2329c19604a7)
 
 **4.3. Провожу повторный тест**
 
 Стало получше
 
-![bf2f5d7618ca09f508ee4ce8170ea6e8.png](:/ab1c13639e3746348b83ecccdcabf4ec)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/720cf204-3bcb-47ae-ba86-013605aeed08)
 
 ### 5. Создаю БД и заполняю ее данными
 
 **5.1. Создаю БД *otus_test***
 
-![c48f003dcc83bfff4da94d763019cc5f.png](:/500a99f8a5f8477d9192fe1d611e6e43)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/8229f413-9b16-4908-a228-5afdf9bdc00f)
 
 **5.2. Подключаюсь и создаю таблицу *large_test***
 
-![68befa12f2b3d5ecd49b7e1e58a2e821.png](:/1fa66272ed914fde9b6cd0075807642f)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/1eaa47e0-e2ab-4889-ae40-e51dbd8c656c)
 
 **5.3. Заполняю ее данными**
 
-![19551e94926e6d3daba2e5f80b0b4686.png](:/a4d102f00be3474aad2b2a5bf2546a99)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/6d5fe38b-b23e-431c-9035-0d0360d36429)
 
 **5.4. Проверяю размер БД**
 
-![1c0c5339e8c51d3d2d8e38a6f901b25a.png](:/230060fb242244be977789494cca94cf)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/9ec19f39-aac0-4855-852c-94424c1e4dac)
 
 ### 6. Заполняю ClickHouse аналогичными данными
 
 **6.1. Подключаюсь к ClickHouse**
 
-![4ab2ec3670af0f321da90745a787c648.png](:/4007b9eb43bf4c68b12ba83c891fe364)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/a11ea9b8-e12a-49fe-8c92-576cadeff691)
 
 **6.2. Создаю БД и таблицу с аналогичным PG названием**
 
-![6ad8ab48748351e4e382ba45f101d31e.png](:/c3dd2c856a6544cca6f7f8ab6421bf88)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/190c61f3-1b4c-4d82-b73e-eb9a92674c39)
 
 **6.3. Заполняю ее аналогичыми данными**
 
-![93db360eeae241b858724f326e2045e5.png](:/6dcfd37973d64d32974c82282550f8bf)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/3e129a0a-da9a-4ef7-ab8a-3608205e359b)
 
 ### 7.  Сравниваю скорость заполнения таблиц данными между СУБД
 
 **Postgres:**
 
-![68a9712beeaeaefae5a8e89ef8698a9b.png](:/5d9da5481ada4e3392275df26a8abd00)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/523540fb-d73a-4b88-aa46-1ef7dfba3eeb)
 
 **ClickHouse:**
 
-![eb48c0f8ec720824af8b006d26327fee.png](:/748d74f347d447d4b58ec3d914239946)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/60bedf14-93a6-42d6-9c81-33753b97bf2c)
 
 ### 8. Проверяю результат скорости выборки данных между СУБД
 
 **Postgres:**
 
-![f40fa507f79ce48df1542a2a2fc749fa.png](:/434106bfa5f848d7b45f9da894b6d1ad)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/2668970e-1ea2-4dac-a01e-0e9637d22957)
 
 **ClickHouse:**
 
-![86b26617f9447bea1670afa65e066dea.png](:/cab79f638deb4e8c9ce902875085c7ac)
+![изображение](https://github.com/rus-99-pk/otus_edu/assets/93255418/ac2500a0-7adc-409b-b9d7-b777f989bd36)
