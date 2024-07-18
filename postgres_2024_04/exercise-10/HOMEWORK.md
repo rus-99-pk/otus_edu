@@ -1,4 +1,4 @@
-#  Массивно параллельные кластера PostgreSQL 
+# Массивно параллельные кластера PostgreSQL 
 
 # Установку каждой СУБД планирую выполнять в Docker
 
@@ -6,7 +6,7 @@
 
 ### 1. Проверяю статус установленного ранее Docker
 
-![1a813cda1b60bd0a39ceef0b5e3f8668.png](:/af2db618ba454197b63bf14a9223257b)
+![изображение](https://github.com/user-attachments/assets/6b8faeb9-8b7f-418e-9f3a-c23b7ff8e2bf)
 
 ### 2. Поднимаю контейнер
 
@@ -14,58 +14,76 @@
 **2.2. Проверяю статус контейнера**
 **2.3. Выполняю тестовое подключение**
 
-![3826274ce24041f9b76346863e98a90a.png](:/946c0c7f896746d0bd86833295b6694b)
+![изображение](https://github.com/user-attachments/assets/c79279fd-10e7-4a9b-844b-46bc91200cc6)
 
 ## Установка Greenplum
 
 ### 3. Поднимаю контейнер по [документации](https://vldb.gitbook.io/vldb-greenplum-demo/docker-installation/installing-container)
 
 **3.1. Запускаю контейнер с именем *greenplum***
+
 **3.2. Проверяю статус контейнера**
+
 **3.3. Выполняю тестовое подключение. Неудачно...**
+
 **3.4. Иду внутрь контейнера**
+
 **3.5. Пробую запустить кластер Greenplum. Ловлю ошибку отсутствия команды *sudo***
+
 **3.6. Переключаюсь под пользователя *gpadmin***
+
 **3.7. Пробую повторно запустить кластер Greenplum**
+
 **3.8. Проверяю статус кластера**
+
 **3.9. Выхожу из контейнера**
+
 **3.10. Пробую подключиться под *gpadmin*, но такой таблицы не существует**
+
 **3.11. Пробую подключиться к БД *postgres***
+
 **3.12. Проверяю существующие БД**
 
-![83310961fd1a5ae30586ea41739b3406.png](:/b5c4a6b036584d13a9e408ca8faccf24)
-![4f4d0fd61832920ae8b5066bf7fd8e22.png](:/c7f02aab8cd84bcd907bf15b205bb249)
+![изображение](https://github.com/user-attachments/assets/310d9972-26f1-4dd9-bc89-45223ca3d32e)
+
+![изображение](https://github.com/user-attachments/assets/19c6bb11-fb76-488c-9ec0-16b4048d530b)
 
 ## Установка Yugabyte
 
 ### 4. Поднимаю контейнер по [документации](https://docs.yugabyte.com/preview/quick-start/docker/)
 
 **4.1. Запускаю контейнер с именем *yugabyte***
+
 **4.2. Проверяю статус контейнера**
+
 **4.3. Подключаюсь к контейнеру и проверяю статус СУБД**
+
 **4.4. Далее мне понадобилось 3 команды чтобы понять, что нужен другой порт**
+
 **4.5. Выполняю тестовое подключение. Ура!**
 
-![88b8eaa07fdf32810878aa9daa3055e9.png](:/9a3f7d8704654d179b83f9cd6c119d04)
+![изображение](https://github.com/user-attachments/assets/c80dbd06-75c8-49de-8142-a8274b32f0f0)
 
 **Ого, даже UI есть...**	
 
-![a230c438437dff65018e27026a910fb9.png](:/33fd5638c4f845b7849ca8e7dfe95daf)
+![изображение](https://github.com/user-attachments/assets/a86d4ea7-e902-4cb5-96e9-cca2141fa02e)
 
 ## Разворачиваю БД на каждой СУБД
 
 ### 5. Еще раз проверяю статусы контейнеров
 
 GOOD!
-![f4f5f13686aee286f386e637e796f30d.png](:/b4dc7996467c4c7b8125c436cc7eb527)
+![изображение](https://github.com/user-attachments/assets/5726a033-3a8c-4023-9d4a-7cee3c7598e4)
 
 ### 6. Создаю в каждой СУБД БД, куда буду производить восстановление из заготовленного ранее дампа
 
 **6.1. Postgres**
+
 **6.2. Greenplum**
+
 **6.3. Yugabyte**
 
-![75d147ae305935d8bedae29d1d77718d.png](:/7ba6cc3a9cc14c878b939607178706be)
+![изображение](https://github.com/user-attachments/assets/93d4f27f-870c-4c71-956e-4bd4667d28db)
 
 ### 7. Выполняю восстановление из дампа
 
@@ -73,8 +91,8 @@ GOOD!
 
 Восстановление заняло около 10-15 минут.
 
-![0753343ddb0c46696488c37bf6a5863b.png](:/9fab03755fee4857a3752f9a0c2fbf5b)
-![15369b3aa0f3da70c17726bebe6ad8e3.png](:/ac561563f3a247d88dd0bca85e70b157)
+![изображение](https://github.com/user-attachments/assets/38ca1732-9137-48d4-a1ba-fc6f254b3340)
+![изображение](https://github.com/user-attachments/assets/e01ff9e0-75da-41db-851a-66025bd60883)
 
 **7.2. Greenplum**
 
@@ -82,12 +100,12 @@ GOOD!
 
 Уже на этом этапе есть ряд отличий, вероятно связанных с версией PG в том числе. Но в итоге удалось поднять БД.
 
-![b542dc9548b295a2056e437fc1ca421f.png](:/5ca9510441a0423c80b011bda136e7ea)
-![333895fb24e9b25196c22b0784d0d791.png](:/ab14ca5c5f9e4fea8fedff373362b440)
+![изображение](https://github.com/user-attachments/assets/09f5cb3e-8eea-4dfa-88db-0e9ba941b2fe)
+![изображение](https://github.com/user-attachments/assets/78303a51-8598-493f-83ed-2f84f67688e2)
 
 Итоговая БД весит больше, чем в Postgres, вероятно, из-за доп. столбцов
 
-![a731cb5444303d2439e13a618d225dbe.png](:/021f0b593150405893ca2252d3c0b6c5)
+![изображение](https://github.com/user-attachments/assets/ae81a5ad-d681-4381-8fd1-fb3ae41ef177)
 
 Также обратил внимание, что при восстановлении очень сильно выросла нагрузка на диск, I/OWait вырос до 80, что мне очень не понравилось. Но посмотрим что будет со скоростью выполнения запросов
 
@@ -95,17 +113,20 @@ GOOD!
 
 Восстановление заняло больше двух часов...
 
-![97ffbc15e6a690d143998f40a3d6b8b8.png](:/93fc87091b7144c88bec4ced1747e40f)
+![изображение](https://github.com/user-attachments/assets/6124f80e-d71c-4267-9b76-c72192dd5a30)
 
 На этот раз I/OWait вырос до 30, что уже лучше по сравнению с Greenplum. Но это очень сурово из-за времени восстановления...
 
 **7.3.1. Иду смотреть размер БД, но его нет...**
+
 **7.3.2. Еще разок... тоже нет**
+
 **7.3.3. Ок, ну а сейчас то получится? Тоже нет...**
+
 **7.3.4. Как скажете, схожу в UI**
 
-![09ece3556269fd0fec9105d14ae59c46.png](:/46d88e9bc1d146d4817066d6563ff157)
-![c79529cdff00bddc546e5d80f858e822.png](:/355fd96c1be7435296421b71bd2d9da3)
+![изображение](https://github.com/user-attachments/assets/5286de77-985e-4cd7-bdfb-cf4dc39955d4)
+![изображение](https://github.com/user-attachments/assets/36382297-06af-4cf6-bc52-5dd3f5e79248)
 
 ### 8. Провожу тесты на каждой СУБД
 
@@ -113,25 +134,28 @@ GOOD!
 
 **8.1. Postgres**
 
-![994912916f6533f23ce07d0848bef12d.png](:/7dd08fa9af51487ebfc733f9fe5d0e52)
+![изображение](https://github.com/user-attachments/assets/5e960800-0d3c-49df-ad08-452e72b66951)
 
 **8.2. Greenplum**
 
-![7f5f025065e42da816581ee4e4c29f51.png](:/0a1535bf441e474fbf4561551746f84e)
+![изображение](https://github.com/user-attachments/assets/01006641-3504-4010-9e2c-1d86e90c1949)
 
 **8.3. Yugabyte**
 
-![193aa076e810852df1180c959664c1b6.png](:/57a374ae728e4e5486a6cf5ba0aea81a)
+![изображение](https://github.com/user-attachments/assets/38c25bfc-c98b-481f-ba3b-b4b71a994822)
 
 ### 9. Итоги тестов
 
 **Postgres**
-![6c9d1c16af17d9631d637f44450a366f.png](:/d9be5158ddb548adb78c3bfd82bbb772)
+
+![изображение](https://github.com/user-attachments/assets/dd12816a-7b58-4ec8-a933-1b386c7014d6)
 
 **Greenplum**
-![671667d4a8b07d5d023a1b3d11b33b4c.png](:/a3624b45ff4646afac1eee20f537e587)
+
+![изображение](https://github.com/user-attachments/assets/44f0b375-31f0-4f89-bc56-f9483a39d227)
 
 **Yugabyte**
-![125ab7c83a2b2e25b038ee81019911ec.png](:/88f8298020684d8db5965f3f8e293f1e)
+
+![изображение](https://github.com/user-attachments/assets/68eeae3b-dec2-4a17-8fe6-a35c86cd96dc)
 * * *
 **Итог:** по скорости оказался на первом месте *Postgres*, на втором *Yugabyte* и на третьем *Greenplum*. По скорости восстановления *Yugabyte* очень неприятно удивил. Но не смотря на скорость, в массивно параллельных кластерах важна не столько скорость, сколько надежность.
