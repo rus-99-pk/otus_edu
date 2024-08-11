@@ -1,0 +1,32 @@
+---
+- name: Установка python3-apt
+  package:
+    name: python3-apt
+    state: present
+
+- name: Добавление ключевого репозитория Postgresql
+  apt_key:
+    url: http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc
+    state: present
+
+- name: Обновить ключи APT
+  command: apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
+  become: yes
+
+- name: Добавление репозитория Postgresql
+  apt_repository:
+    repo: 'deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main'
+    state: present
+
+- name: Обновление репозитория
+  apt:
+    cache_valid_time: 86400
+    update_cache: yes
+
+- name: Установка обязательных пакетов
+  package:
+    name:
+      - python3-psycopg2  # для нативных модулей postgresql в ansible
+      - postgresql-{{ postgres_version }}
+      - postgresql-contrib-{{ postgres_version }}
+    state: present

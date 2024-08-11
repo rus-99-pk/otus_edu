@@ -1,0 +1,6 @@
+---
+- include_tasks: packages.yml
+  tags: deploy
+
+- include_tasks: postgresql.conf.yml
+  tags: config

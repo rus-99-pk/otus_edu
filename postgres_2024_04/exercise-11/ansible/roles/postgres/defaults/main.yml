@@ -1,0 +1,24 @@
+postgres_version: "15"
+postgres_user: "postgres"
+postgres_group: "postgres"
+
+postgres_processor_vcpus: "{{ ansible_processor_vcpus }}"
+postgres_memtotal_mb: "{{ ansible_memtotal_mb }}"
+postgres_port: 5432
+postgres_max_connections: 200
+postgres_shared_buffers: "{{ (postgres_memtotal_mb * 0.25) | int }}MB"
+postgres_effective_cache_size: "{{ (postgres_memtotal_mb * 0.75) | int }}MB"
+postgres_maintenance_work_mem: "{{ (postgres_memtotal_mb // 16) | int }}MB"
+postgres_checkpoint_completion_target: "0.9"
+postgres_wal_buffers: "16MB"
+postgres_default_statistics_target: 500
+postgres_work_mem: "2MB"
+postgres_log_min_duration_statement: "60s"
+postgres_temp_file_limit: 5242880
+postgres_log_temp_files: 51200
+postgres_min_wal_size: 1GB
+postgres_max_wal_size: 4GB
+postgres_max_worker_processes: "{{ postgres_processor_vcpus }}"
+postgres_max_parallel_workers_per_gather: 0
+postgres_max_parallel_workers: "{{ postgres_processor_vcpus }}"
+postgres_max_parallel_maintenance_workers: "{{ (postgres_processor_vcpus * 0.5) | int }}"

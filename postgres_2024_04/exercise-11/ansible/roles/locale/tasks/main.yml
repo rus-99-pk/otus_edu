@@ -1,0 +1,13 @@
+---
+- name: Генерация локалей
+  locale_gen:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ locales }}"
+
+- name: Установить локаль {{ locale_default }}
+  lineinfile:
+    dest: "/etc/default/locale"
+    regexp: "^LANG="
+    line: "LANG={{ locale_default }}"
+  notify: locale-update

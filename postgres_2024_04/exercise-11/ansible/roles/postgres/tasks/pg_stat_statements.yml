@@ -1,0 +1,7 @@
+---
+- name: Установка расширения pg_stat_statements
+  postgresql_ext:
+    name: pg_stat_statements
+    db: postgres
+  become: yes
+  become_user: postgres

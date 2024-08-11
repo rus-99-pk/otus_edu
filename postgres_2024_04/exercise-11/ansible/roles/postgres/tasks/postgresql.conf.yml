@@ -1,0 +1,41 @@
+---
+- name: Изменение postgresql.conf
+  lineinfile:
+    dest: /etc/postgresql/{{ postgres_version }}/main/postgresql.conf
+    state: present
+    regexp: "^#?{{ item[0] }} =.*"
+    line: "{{ item[0] }} = {{ item[1] }}"
+  loop:
+    - ["listen_addresses", "'*'"]
+    - ["port", "{{ postgres_port }}"]
+    - ["max_connections", "{{ postgres_max_connections }}"]
+    - ["shared_buffers", "{{ postgres_shared_buffers }}"]
+    - ["maintenance_work_mem", "{{ postgres_maintenance_work_mem }}"]
+    - ["wal_buffers", "{{ postgres_wal_buffers }}"]
+    - ["shared_preload_libraries", "'pg_stat_statements'"]
+    - ["min_wal_size", "{{ postgres_min_wal_size }}"]
+    - ["max_wal_size", "{{ postgres_max_wal_size }}"]
+    - ["max_worker_processes", "{{ postgres_max_worker_processes }}"]
+  notify: restart postgresql
+
+- name: Изменение postgresql.conf
+  lineinfile:
+    dest: /etc/postgresql/{{ postgres_version }}/main/postgresql.conf
+    state: present
+    regexp: "^#?{{ item[0] }} =.*"
+    line: "{{ item[0] }} = {{ item[1] }}"
+  loop:
+    - ["effective_cache_size", "{{ postgres_effective_cache_size }}"]
+    - ["work_mem", "{{ postgres_work_mem }}"]
+    - ["checkpoint_completion_target", "{{ postgres_checkpoint_completion_target }}"]
+    - ["log_min_duration_statement", "{{ postgres_log_min_duration_statement }}"]
+    - ["default_statistics_target", "{{ postgres_default_statistics_target }}"]
+    - ["max_parallel_workers_per_gather", "{{ postgres_max_parallel_workers_per_gather }}"]
+    - ["max_parallel_workers", "{{ postgres_max_parallel_workers }}"]
+    - ["max_parallel_maintenance_workers", "{{ postgres_max_parallel_maintenance_workers }}"]
+    - ["lc_messages", "'en_US.UTF-8'"]
+    - ["temp_file_limit", "{{ postgres_temp_file_limit }}"]
+    - ["log_temp_files", "{{ postgres_log_temp_files }}"]
+    - ["log_line_prefix", "'%t [%p-%l] %q%u@%d '"]
+    - ["log_checkpoints", "on"]
+  notify: reload postgresql
