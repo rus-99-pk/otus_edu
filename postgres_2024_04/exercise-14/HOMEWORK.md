@@ -4,65 +4,79 @@
 
 ### 1. Выполняю инициализацию и подключение к ЯО
 
-![53d80ee1540dd65f30c587ceb005edb7.png](:/c6cf8a2c27624d79900337b57cb75649)
+![изображение](https://github.com/user-attachments/assets/e67cc9fc-113b-4f4f-8fc5-bdb05f26d481)
+
 
 ### 2. Создаю сетевую инфраструктуру
 
 ### 2.1. Создаю сеть
 
-![0074614bb243c7eb29070559453e36e9.png](:/5b13f8a0892e460daa107c1b0bc65d0d)
+![изображение](https://github.com/user-attachments/assets/378fbe69-c34c-4ea5-b912-06a62d3138d1)
+
 
 ### 2.2. Создаю в ней подсети
 
 > Три подсети в трех разных зонах
 
-![f5af98655819739c31454e78aa947643.png](:/e208b999c7a04b08abb14e72c8e2d5ca)
+![изображение](https://github.com/user-attachments/assets/a8809ff8-eb07-4f4a-9e07-459996c5cd33)
+
 
 ### 3. Создаю инстанс ВМ
 
-![3647c12a6134934d9237ddc8e038784a.png](:/f666368675c743f9a476498bb7ea75a3)
+![изображение](https://github.com/user-attachments/assets/7fe38240-611f-4033-b715-b9c6a1c2808c)
 
-![55971a90d5494d21ea2c7de362251097.png](:/769cd3388d7641fe845427a8323ec5e8)
+
+![изображение](https://github.com/user-attachments/assets/ce5fc211-29ef-4186-8409-fb34ecb2dd3f)
+
 
 > Иду в [документацию](https://yandex.cloud/ru/docs/troubleshooting/managed-kubernetes/how-to/adding-and-changing-ssh-keys-for-linux-users-on-node-groups) и понимаю что нужно немного поменять формат
 
-![6754e61a043184e2273883757b683fbe.png](:/0edaf2cb215e4849aa5efb30afc0f881)
+![изображение](https://github.com/user-attachments/assets/896aa5e9-33e3-43f1-a435-8096e6a6125d)
+
 
 > После этого успешно удается подключиться
 
-![d8b60d7045fb0885cf266af6be01840c.png](:/b934298a217c4f51bb9ecec92b39da51)
+![изображение](https://github.com/user-attachments/assets/96c64dfe-6de0-4a4f-9ffc-d93545e8f3d4)
+
 
 ### 4. Устанавливаю Postgres по [документации](https://www.postgresql.org/download/linux/ubuntu/)
 
 ### 5. Конфигурирую и перезапускаю Postgres
 
-![1ac6c2985624e2cfe6a58b0b2aff42d6.png](:/5023758413604dee8292d2e99ef3bf30)
+![изображение](https://github.com/user-attachments/assets/25769f4c-86f5-419b-907d-9745b20dc8ac)
+
 
 ### 6. Загружаю датасет с банковскими транзакциями
 
 > Т.к. датасет с Чикагским такси отсутствовал, загрузил с Операциями клиентов банка
 
-![ab5b707480ac566b7037a8ea6c86af00.png](:/dfa25ccb4e7f4e59a6d933ad38136119)
+![изображение](https://github.com/user-attachments/assets/ed736d34-ead0-407a-a03b-0ff9505906d6)
+
 
 ### 7. Создаю БД и таблицу
 
-![ea8f04f755d0162bf1f2f72dbce3c855.png](:/e88aedee8b50421abf78ddf4c6af4911)
+![изображение](https://github.com/user-attachments/assets/5b3d22c5-d3a3-47f6-959b-bc53070a7648)
+
 
 ### 8. Заполняю ее данными
 
-![8858d92a10326886c81b230255514040.png](:/96c8d9be74984552b836957c371ee13c)
+![изображение](https://github.com/user-attachments/assets/42c4c62a-5d2d-4ae6-abb9-522b21ed67fa)
+
 
 > И тут же сталкиваюсь с тем, что числа, содержащие запятую не импортируются в Postgres
 
-![e1595c47169553886d767df810084044.png](:/2bee0ae4b3d7455fa792a4e9edb2bc2a)
+![изображение](https://github.com/user-attachments/assets/2c9c9734-d11f-4d0f-a1fc-2eaad8357642)
+
 
 > Приходится писать скрипт для удаления запятых
 
-![698b477a199f703f5139a1d4d55495a6.png](:/a30f1123e04c4ce88b67eecf5c492319)
+![изображение](https://github.com/user-attachments/assets/c7fae11a-42f3-4a00-8b0d-e89b5125819b)
+
 
 > После того как скрипт отработал, сверяю данные
 
-![ab22e571940fa594b9f2eb3390f7bb4b.png](:/313487f9c81e43e0b3dab9d692dffcf1)
+![изображение](https://github.com/user-attachments/assets/716a2e90-8d8e-4ed0-bd32-ede2a69dbf41)
+
 
 > Запускаю еще раз, но на уже обработанном файле
 
@@ -70,13 +84,16 @@
 
 > В процессе проверяю процесс заливки данных
 
-![398e2e7b7162bf3f8ee02fca1729b871.png](:/4966e065dcdf4e54be2fb34cc951a9ce)
+![изображение](https://github.com/user-attachments/assets/feb0faaa-7f5b-4243-9434-88060444aaeb)
 
-![cb56041da3f6a1d4977086d82a80795e.png](:/d57954e02eba48258cf469ecf60514eb)
+
+![изображение](https://github.com/user-attachments/assets/b5179fbd-3622-4bb6-9a15-bf9827de005e)
+
 
 ### 9. Выполняю `ANALYZE` и создаю индексы
 
-![99eea49bb17887fff8a3b517389c16d5.png](:/be1f1641dd144809880d0c42ad4eac99)
+![изображение](https://github.com/user-attachments/assets/cb22047c-cdaf-4841-b8bd-de68a1a62a43)
+
 
 ### 10. Выполняю тестовые запросы
 
@@ -88,176 +105,206 @@
 
 ### 10.4. Вывожу кол-во записей в таблице
 
-![940eba8f993d57b41685e9d0bf4ed66d.png](:/7dedcbf20f9a4cc59f81283d7a46b55a)
+![изображение](https://github.com/user-attachments/assets/bb7d2248-9927-48d2-8b5c-dfbd5fc26a35)
 
-### 10. Поднимаю CockroachDB
 
-### 10.1. Поочередно поднимаю три ВМ в трех разных зонах
+### 11. Поднимаю CockroachDB
 
-![a0c94b9a48e9b9a62baafc0da9390dce.png](:/dc014618be624905a73f8090b0cdccf8)
+### 11.1. Поочередно поднимаю три ВМ в трех разных зонах
 
-![cf85ba97b70e2254fd8a5642c49c254c.png](:/5d5840a130b048fab291f6cebb1249b7)
+![изображение](https://github.com/user-attachments/assets/7dbb5cf7-8c09-4bf1-81e8-6226c29710de)
 
-### 10.2. Циклом устанавливаю на хостах Cockroach
+![изображение](https://github.com/user-attachments/assets/c2d63e70-5c78-4fc4-bf9e-fad82bb12285)
 
-![fd7c1a06ffb72c201c212339be019326.png](:/95b899c99011405aa1e8a9975849112f)
 
-### 10.3. Генерирую сертификаты на первой ноде
+### 11.2. Циклом устанавливаю на хостах Cockroach
 
-**10.3.1. Иду в каталог СУБД**
+![изображение](https://github.com/user-attachments/assets/d55b348a-677f-4e41-a4b6-a115a7fd3e4b)
 
-**10.3.2. Генерирую сертификаты**
 
-**10.3.3. Проверяю их наличие, для переноса на другие ноды**
+### 11.3. Генерирую сертификаты на первой ноде
 
-![0708c8c07db3cec991023038ee572fad.png](:/4c8aab95abc140288cbaa7bea05dc384)
+**11.3.1. Иду в каталог СУБД**
 
-### 10.4. Переношу сертификаты на остальные ноды
+**11.3.2. Генерирую сертификаты**
 
-![5a1b37985a1bab29659b543d11ee7a07.png](:/0859d61c15f445b5b13c879b15a35fa7)
+**11.3.3. Проверяю их наличие, для переноса на другие ноды**
 
-### 10.5. Запускаю ноды кластера
+![изображение](https://github.com/user-attachments/assets/565398ba-75a8-4386-8b52-ac8c0d958c89)
+
+
+### 11.4. Переношу сертификаты на остальные ноды
+
+![изображение](https://github.com/user-attachments/assets/90ed31c6-8e55-445e-9411-6a5d9db82b95)
+
+
+### 11.5. Запускаю ноды кластера
 
 > Выполнил команду `start` поочередно на каждой ноде, но это ни к чему не привело
 
 > Даже к записи в системный лог... При этом PID'ы есть.
 
-![dc76a7e2df502fb1495ab937cdda3033.png](:/0296e7d89ad440e69ed41e23dba6f1e0)
+![изображение](https://github.com/user-attachments/assets/5e061558-6b0b-4dcd-b1ef-957dcff47d32)
+
 
 > Пока команды повисли и чего-то ждут, параллельно пробую инициализировать кластер
 
-![2ec96fc5c5ef316efb7327b35ddf9601.png](:/9002b7f1b3f44dd8ac0ed53486e75f2e)
+![изображение](https://github.com/user-attachments/assets/f54aa1c2-7f96-423c-b0b6-9b1125fd76f9)
+
 
 > На удивление получилось... (странная какая-то СУБД)
 
 > После успешной инициализации дропнул соединения с командой `start`
 
-### 10.6. Проверяю состояние нод
+### 11.6. Проверяю состояние нод
 
 > Почему то только мастер инициализировался (вероятно, потому что только на нем выполнил `init`)
 
-![2932bba048409826738168795e721661.png](:/e915e2613f7b4eb4a0268eddbc43441c)
+![изображение](https://github.com/user-attachments/assets/3d99f050-d656-4fd6-9155-1f950b7a93a6)
+
 
 > С кластером явно проблемы, пошел искать решение...
 
-### 10.7. Пересоздаю сертификаты
+### 11.7. Пересоздаю сертификаты
 
 > Везде
 
-**10.7.1. Удаляю созданные ранее сертификаты**
+**11.7.1. Удаляю созданные ранее сертификаты**
 
 > На первой ноде
 
-**10.7.2. Пересоздаю CA сертификаты и отправляю их на реплики**
+**11.7.2. Пересоздаю CA сертификаты и отправляю их на реплики**
 
-![031b96fb38305431ea00dbeb0459b3f5.png](:/9d9ac5c1edb3479c951d7375192d1211)
+![изображение](https://github.com/user-attachments/assets/d51a1f5c-b9b3-4a84-9c53-66df0532b689)
+
 
 > На всех нодах
 
-**10.7.3. Создаю клиентские сертификаты**
+**11.7.3. Создаю клиентские сертификаты**
 
-![910d69a5ba0bbcbd629ff40bc5f16843.png](:/2b41ad4cc14c4aa684f568d02b9a893b)
+![изображение](https://github.com/user-attachments/assets/9e8a1fdd-4db7-4db7-a53a-4fbe1b770527)
+
 
 > На первой ноде
 
-**10.7.4. Запускаю кластер и инициализирую ноду
+**11.7.4. Запускаю кластер и инициализирую ноду**
 
-![45c8a314ca6a9c80cc698e40605fd03f.png](:/0219881937834572a60eed7820cdff94)
+![изображение](https://github.com/user-attachments/assets/1a30d365-fff4-4cf0-a392-5abb266dcf47)
+
 
 > На второй и третьей ноде
 
-**10.7.5. Добавляю ноды в кластер
+**11.7.5. Добавляю ноды в кластер**
 
-![9c4cffad1e8c55dc3c8c493d72083eed.png](:/038df5c76e93439797ea8585e132b08d)
+![изображение](https://github.com/user-attachments/assets/61db3a7d-6af3-4562-af09-b1682c92e098)
 
-![6cf66a432f903c5382d69bb88eb435a8.png](:/e83785e3f37c45748c7a03f1a6947c98)
+
+![изображение](https://github.com/user-attachments/assets/8c2e8a07-01e2-44de-9422-531fa061f9d7)
+
 
 > На первой ноде
 
-**10.7.6. Проверяю статус
+**11.7.6. Проверяю статус**
 
 > На этот раз хотя бы 2 ноды
 
-![4b7a9f5fbab79f6aa7588d4df5f7427a.png](:/72cac690b5fd49f2ae2cb5cb70b9aee4)
+![изображение](https://github.com/user-attachments/assets/c53234a6-9cff-4afe-a4f8-305135f16800)
+
 
 > Пробую зайти в веб-интерфейс, может хоть там будет что-то полезное
 
-![430dfc565aba259e8da7c233a307ae06.png](:/b4be0473e23d4915af6c901ff4a30b69)
+![изображение](https://github.com/user-attachments/assets/4ddc349e-cb95-4404-aafe-bca22bd9acf2)
+
 
 > Но к сожалению, ничего нового
 
-![462c5939856b4bb220ee79c4daf599c4.png](:/6fc3c7de9d6a467280ce2b33975b163a)
+![изображение](https://github.com/user-attachments/assets/d7fd7ac7-c6f1-4533-9d59-756e257ed034)
+
 
 > При попытке запустить вторую ноду без `--background` вижу ожидаемый результат
 
-![e5cc62555840b2b7485942f2ee6aa22d.png](:/b9475646d0624625856fbb3bd3d429d1)
+![изображение](https://github.com/user-attachments/assets/a478bc21-02a6-46c0-bd11-370b71f8adb1)
+
 
 > Если сделать тоже самое с третьей, то результат не очень предсказуемый
 
-![1bd59a885ab7f5403fbc9167be0f514c.png](:/d954cf68ecd246f585904c0c1bda685d)
+![изображение](https://github.com/user-attachments/assets/25dea907-b49f-447f-9298-3c7199fddb0d)
+
 
 > Пробую выполнить `init` и пересоздать ноду
 
-![46d6f8fd6d58e0d74fcca3521238d33f.png](:/c7252fecadfd488fbea13bf628fd5e15)
+![изображение](https://github.com/user-attachments/assets/7cd7d20a-69eb-4cf7-9178-208803a8f998)
 
-![1d0c246b42886215be5407c04ec25b60.png](:/e36aef3db7b842f4a5577aba31f71d16)
+
+![изображение](https://github.com/user-attachments/assets/f2b3fc77-9292-4e5b-ba97-360375fa9645)
+
 
 > В конечном итоге так и не удалось разобраться, пересоздав ноду с нуля
 
-![faabf6c6edda58f12cb3939599ed43af.png](:/8bce61b4fbaa4191800583285950b837)
+![изображение](https://github.com/user-attachments/assets/5dfe58c2-be60-4a3a-9fda-855d06a7f6c9)
+
 
 > Поэтому продолжу как есть
 
-### 11. Создаю таблицу, аналогичную Postgres
+### 12. Создаю таблицу, аналогичную Postgres
 
-![b08e10fb1a68becdec6a8e51f825cb4f.png](:/ac9c9132766443ffa2a0abb4e8ef15f9)
+![изображение](https://github.com/user-attachments/assets/ba94e6e9-78a3-4c9e-a29f-6559ec5030c1)
 
-### 12. Качаю тот же самый датасет и прогоняю через упомянутые ранее скрипт
 
-### 13. Загружаю CSV в хранилище userfile
+### 13. Качаю тот же самый датасет и прогоняю через упомянутые ранее скрипт
+
+### 14. Загружаю CSV в хранилище userfile
 
 > Интересная особенность
 
-![0767c39e3ddeb35b4a9e81ae581efc29.png](:/e321a20e2ef240419f6cff26a37dd6a7)
+![изображение](https://github.com/user-attachments/assets/f2ea434e-4959-49c3-84d9-834a4e5ea62d)
 
-### 14. Выполняю импорт
 
-![d79cb35e4f541cdc3c0a6498ecba28d4.png](:/863ef7513b754bb6a4238ee804f2f982)
+### 15. Выполняю импорт
+
+![изображение](https://github.com/user-attachments/assets/10e23680-9827-42fa-b828-635299e64c1b)
+
 
 > Чем-то ему не понравился мой файл, ок...
 
 > Пробую ему "скормить" необработанный под PG файл.
 > Но это ни к чему не привело.
 
-![546dc6630e6efec2a670949f7c0dc84e.png](:/26b0c9050657438b8462e271287d5f00)
+![изображение](https://github.com/user-attachments/assets/6c06be1a-2c45-4c5c-a16d-5a77c8ccf096)
+
 
 > Иду вытаскивать данные из Postgres, в надежде что это поможет
 
-![75f3c22cce0d90f497d3e4f29022459e.png](:/1a4e5c6a0fe840f0bb7f445275cff0bd)
+![изображение](https://github.com/user-attachments/assets/36455174-d90c-4aaf-a05b-30fb73790170)
+
 
 > Пробую затащить в СУБД
 
-![284c0cc70fe678a71823327d9d8abde6.png](:/f3f92473abfe4dda99a447c3511f9a14)
+![изображение](https://github.com/user-attachments/assets/a48ad85d-3ab3-4b21-b8e1-71168df0f815)
+
 
 > УРА! Даже что-то поменялось в GUI
 
-![9ec4257ffae217036b84dd43b27e999d.png](:/f7c019867f6f4af6b1f2cffc88dc0a9b)
+![изображение](https://github.com/user-attachments/assets/853d78c4-4f33-48cb-a0f3-3a5c7b4553ee)
 
 
-### 15. Создаю аналогичные PG индексы
 
-![27957e6e0d0fc6888540d61488bd92a9.png](:/670aa416eb154454ab2fa526aa51cbe9)
+### 16. Создаю аналогичные PG индексы
+
+![изображение](https://github.com/user-attachments/assets/0083bd44-0b34-4dc1-9b29-748914bc9a7d)
 
 
-### 16. Делаю аналогичные PG запросы
 
-### 16.1. Выбираю случайную запись по индексам
+### 17. Делаю аналогичные PG запросы
 
-### 16.2. Выбираю случайную запись вне индекса
+### 17.1. Выбираю случайную запись по индексам
 
-### 16.3. Вывожу кол-во записей в таблице
+### 17.2. Выбираю случайную запись вне индекса
 
-![b5fe0a0448bab4305588bb4f52396475.png](:/bf01189d63e644568ad151a38cd13747)
+### 17.3. Вывожу кол-во записей в таблице
+
+![изображение](https://github.com/user-attachments/assets/322288c0-a146-4498-829f-4766be8fcefc)
+
 
 * * *
 
