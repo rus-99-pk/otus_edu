@@ -2,7 +2,8 @@
 
 ### 1. Открываю консоль ЯО
 
-![147bdeeeb7e3dbec3fc8314e16f3e719.png](:/33a035ee3be24a3aa783c59f7049e8e1)
+![изображение](https://github.com/user-attachments/assets/9edc4139-b623-44f6-af3e-40832ec28cd0)
+
 
 ### 2. Создаю Managed Service for PostgreSQL
 
@@ -116,7 +117,8 @@
 
 > Дожидаюсь, пока кластер не будет в состоянии `Alive`
 
-![624dad8a639c675ce732dfccd42986f3.png](:/dbb4053a89204b418ba28e8add32acab)
+![изображение](https://github.com/user-attachments/assets/753beb74-10cc-4a86-a179-df08269ac38b)
+
 
 ### 3. Выполняю подключение
 
@@ -124,7 +126,8 @@
 
 ### 3.2. Устанавливаю сертификат
 
-![2c5c1d31dc1add02db90977f4d61b709.png](:/ee10bafc6c9f46afbfa86c5d3f59f83e)
+![изображение](https://github.com/user-attachments/assets/c066617d-699b-41cd-bb27-3f61c1e7a848)
+
 
 > Т.к. `psql` у меня уже установлен, пропускаю шаг с его установкой
 
@@ -132,27 +135,31 @@
 
 > Но при попытке подключиться доменные имена по какой-то причине не разрешаются
 
-![6a376f99a9dce734951d1f250edf5334.png](:/23144e9764bf47e3a371c47af7d19df6)
+![изображение](https://github.com/user-attachments/assets/7413d84c-61c1-4abd-80b2-a90d4332a3e8)
+
 
 > Чуть позже понимаю публичный доступ отсутствует
 
-![06051b4e1e121700921e10297ca03e29.png](:/f83e5b2c787a488b98f15ae47c441d11)
+![изображение](https://github.com/user-attachments/assets/4c627f80-ccc6-4e78-8b47-a337a3051e7d)
+
 
  **3.3.1. Нажимаю `...` обоих хостов > и выставляю `Публичный доступ [x]`**
  
  > Сейчас вроде бы в порядке
 
-![dd9b9e5de859831574d236444650d003.png](:/794ce39e2a4640eaa941c1aada56e4d4)
+![изображение](https://github.com/user-attachments/assets/494a539f-eef2-4e9b-9610-dfcba9c44946)
 
 **3.3.2. Пробую подключиться на мастер**
 
-![aa7eadab22266d3232b3c1cb2a1e6600.png](:/ce82a61a2a684fd2ac2c13c0bdb8d2c1)
+![изображение](https://github.com/user-attachments/assets/c319a123-17f9-4d6a-891d-55cb943bb4bb)
+
 
 > Успешно
 
 **3.3.3. Пытаюсь создать таблицу**
 
-![3eda34fc3eae4c2c2b48ec7c30ebba03.png](:/7bf20f3c4e2a43439de1ed69ae8f46d4)
+![изображение](https://github.com/user-attachments/assets/43a70dd5-b8d6-42ec-b1a8-8648212404aa)
+
 
 > Здесь тоже удачно
 
@@ -166,16 +173,19 @@
 
 **3.3.4.4. Пробую удалить таблицу, но это не заканчивается успехом, отлично** 
 
-![0cdcc1773169b2b4c1beda060063f819.png](:/8f0ce6db2fd245d2b242d17343a9e1a7)
+![изображение](https://github.com/user-attachments/assets/f58afc09-5836-45fd-99d1-26d0782fd3bf)
+
 
 ### 3.4. Пробую теперь подключиться с другого IP
 
 **3.4.1. Подключаю VPN**
 
-![8a4efaf001128763304843919f6ca7cb.png](:/cde1d065932348a8be94d9f8ee8db02c)
+![изображение](https://github.com/user-attachments/assets/043ba8b7-4376-4c0d-9794-5df510d2c05c)
+
 
 **3.4.2. Пробую подключиться**
 
 > И... файерволл работает
 
-![e850d9ef7d84fd42a59ce0c35f4d34b7.png](:/28e929056a4a47d691de0cc69a2562fc)
+![изображение](https://github.com/user-attachments/assets/3a7630ea-8fa1-4a0c-a9fc-55aaef06a350)
+
